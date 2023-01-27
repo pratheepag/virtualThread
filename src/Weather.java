@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeoutException;
 
-public record Weather(String agency, String weather) {
+public record Weather(String agency, String weather) implements PageComponent{
     public static Weather UNKNOWN = new Weather("NA", "Mostly Sunny");
     private static class WeatherScope implements AutoCloseable{
         private StructuredTaskScope.ShutdownOnSuccess<Weather> scope = new StructuredTaskScope.ShutdownOnSuccess<>();
